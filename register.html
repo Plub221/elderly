@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class="container">
+        <h2>สมัครสมาชิก</h2>
+        <form id="registerForm">
+            <label for="fullname">ชื่อ-นามสกุล</label>
+            <input type="text" id="fullname" required>
+
+            <label for="email">อีเมล</label>
+            <input type="email" id="email" required>
+
+            <label for="password">รหัสผ่าน</label>
+            <input type="password" id="password" required>
+
+            <label for="role">สมัครเป็น</label>
+            <select id="role">
+                <option value="caregiver">ผู้ดูแล</option>
+                <option value="elderly">ผู้สูงอายุ</option>
+            </select>
+
+            <button type="submit">สมัครสมาชิก</button>
+        </form>
+        <p>มีบัญชีอยู่แล้ว? <a href="login.html">ล็อกอิน</a></p>
+    </div>
+
+    <script src="js/register.js"></script>
+</body>
+</html>

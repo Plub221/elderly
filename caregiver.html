@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผู้ดูแล - ระบบแจ้งเตือนผู้สูงอายุ</title>
+    <link rel="stylesheet" href="css/caregiver.css">
+</head>
+<body>
+    <div class="container">
+        <h2>หน้าผู้ดูแล</h2>
+        <p>ยินดีต้อนรับ <span id="caregiverName"></span></p>
+
+        <h3>เลือกผู้สูงอายุที่ดูแล</h3>
+        <select id="elderlyList"></select>
+
+        <h3>ตารางเวลาของผู้สูงอายุ</h3>
+        <ul id="scheduleList"></ul>
+
+        <!-- ฟอร์มเพิ่มกิจกรรม -->
+        <h3>เพิ่มกิจกรรมใหม่</h3>
+        <label for="newTask">กิจกรรม:</label>
+        <input type="text" id="newTask" placeholder="กรอกรายละเอียดกิจกรรม">
+
+        <label for="taskTime">เวลา:</label>
+        <input type="time" id="taskTime">
+
+        <button id="addTask">เพิ่มกิจกรรม</button>
+
+        <button id="sendNotification">แจ้งเตือนให้กลับบ้าน</button>
+        <button id="viewLocation" onclick="openMap()">ดูตำแหน่ง</button>
+
+        <div id="notificationBox" class="hidden">
+            <p id="notificationText"></p>
+            <button id="closeNotification">ปิดแจ้งเตือน</button>
+        </div>
+    </div>
+
+    <button id="logoutButton" class="logout-button">ออกจากระบบ</button>
+
+    <script src="js/auth.js"></script>
+    <script src="js/caregiver.js"></script>
+    <script src="js/schedule.js"></script>
+</body>
+</html>

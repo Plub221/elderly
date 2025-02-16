@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผู้สูงอายุ - ระบบแจ้งเตือนผู้สูงอายุ</title>
+    <link rel="stylesheet" href="css/elderly.css">
+</head>
+<body>
+    <div class="container">
+        <h2>หน้าผู้สูงอายุ</h2>
+        <p>ยินดีต้อนรับ <span id="elderlyName"></span></p>
+
+        <h3>ตารางเวลาของคุณ</h3>
+        <ul id="scheduleList"></ul>
+
+        <div id="notificationBox" class="hidden">
+            <p id="notificationText">ข้อความแจ้งเตือน</p>
+            <button id="closeNotification">ปิดแจ้งเตือน</button>
+        </div>
+
+        <!-- ปุ่มออกจากระบบ -->
+        <button id="logoutButton" class="logout-button">ออกจากระบบ</button>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser || currentUser.role !== "elderly") {
+            alert("กรุณาเข้าสู่ระบบก่อน!");
+            window.location.href = "login.html";
+            return;
+        }
+
+        document.getElementById("elderlyName").textContent = currentUser.fullname;
+
+        function updateLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let gpsLocations = JSON.parse(localStorage.getItem("gpsLocations")) || {};
+                    gpsLocations[currentUser.email] = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    localStorage.setItem("gpsLocations", JSON.stringify(gpsLocations));
+                    console.log("📍 อัปเดตตำแหน่ง:", gpsLocations[currentUser.email]);
+                }, function(error) {
+                    console.error("ไม่สามารถรับตำแหน่ง:", error);
+                });
+            } else {
+                alert("เบราว์เซอร์ไม่รองรับการระบุตำแหน่ง");
+            }
+        }
+
+        // อัปเดตตำแหน่ง GPS ทุก 30 วินาที
+        setInterval(updateLocation, 30000);
+
+        // ฟังก์ชันออกจากระบบ
+        document.getElementById("logoutButton").addEventListener("click", function() {
+            localStorage.removeItem("currentUser");
+            window.location.href = "login.html";
+        });
+    });
+    </script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/elderly.js"></script>
+</body>
+</html>
