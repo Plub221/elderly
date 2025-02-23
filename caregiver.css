@@ -1,0 +1,310 @@
+/* ตั้งค่าทั่วไป */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* สไตล์ container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    color: #5b5b5b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ข้อความต้อนรับ */
+p {
+    font-size: 18px;
+    color: #5b5b5b;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#caregiverName {
+    font-weight: bold;
+}
+
+/* ฟอร์มเลือกผู้สูงอายุ */
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+option {
+    font-size: 16px;
+}
+
+/* ตารางกิจกรรม */
+#scheduleList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#scheduleList li {
+    background-color: #e9f1f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#scheduleList li span {
+    flex: 1;
+    font-size: 18px;
+    color: #555;
+}
+
+#scheduleList li button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#scheduleList li button:hover {
+    background-color: #4cae4c;
+}
+
+#scheduleList li button.delete {
+    background-color: #d9534f;
+}
+
+#scheduleList li button.delete:hover {
+    background-color: #c9302c;
+}
+
+/* ฟอร์มเพิ่มกิจกรรม */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5bc0de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #31b0d5;
+}
+
+button:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+}
+
+/* ส่วนข้อความแจ้งเตือน */
+.notification {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ปุ่มออกจากระบบ (เล็กและไม่ยาวเกินไป) */
+.logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 15px; /* ขนาดปุ่มไม่ยาวเกินไป */
+    border-radius: 5px;
+    font-size: 14px; /* ขนาดตัวอักษรเล็กลง */
+    cursor: pointer;
+    white-space: nowrap; /* ไม่ให้ข้อความแตกบรรทัด */
+}
+
+.logout-button:hover {
+    background-color: #ff1a1a;
+}
+
+/* สไตล์ container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    color: #5b5b5b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* สไตล์ข้อความตารางกิจกรรม */
+#scheduleList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#scheduleList li {
+    background-color: #e9f1f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#scheduleList li span {
+    flex: 1;
+    font-size: 18px;
+    color: #555;
+}
+
+#scheduleList li button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#scheduleList li button:hover {
+    background-color: #4cae4c;
+}
+
+#scheduleList li button.delete {
+    background-color: #d9534f;
+}
+
+#scheduleList li button.delete:hover {
+    background-color: #c9302c;
+}
+
+/* ส่วนข้อความแจ้งเตือน */
+.notification {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* กล่องแจ้งเตือน */
+#notificationBox {
+    margin-top: 20px;
+    background-color: #f39c12;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+#notificationBox.hidden {
+    display: none;
+}
+
+#notificationText {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#closeNotification {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeNotification:hover {
+    background-color: #3498db;
+}
+
+/* ซ่อนการแจ้งเตือนเริ่มต้น */
+.hidden {
+    display: none;
+}
+
+/* รูปแบบการแจ้งเตือน */
+#notificationBox {
+    background-color: #f8d7da;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    color: #721c24;
+}
+
+#closeNotification {
+    background-color: #f5c6cb;
+    border: none;
+    color: #721c24;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#scheduleList li span {
+    flex: 1;
+    font-size: 18px;
+    color: #555;
+    display: flex;
+    justify-content: space-between; /* จัดการการแสดงเวลาและกิจกรรม */
+}
+
+#scheduleList li span::before {
+    content: attr(data-time); /* แสดงเวลาแยกจากกิจกรรม */
+    margin-right: 10px;
+}
